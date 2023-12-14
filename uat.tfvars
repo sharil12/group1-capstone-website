@@ -1,2 +1,3 @@
 bucket_env = "uat"
-bucket_name = "zmw-sctp-prjt-test"
+bucket_name = "sharil-capstone-test"
+domain-name = "uat-website.com"
