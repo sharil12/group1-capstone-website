@@ -122,14 +122,14 @@ output "cloudfront_url" {
 
 # AWS Route53 zone data source with the domain name and private zone set to false
 data "aws_route53_zone" "zone" {
-  provider = aws.use_default_region
+  provider = aws.us-east-1
   name         = var.domain-name
   private_zone = false
 }
 
 # AWS Route53 record resource for certificate validation with dynamic for_each loop and properties for name, records, type, zone_id, and ttl.
 resource "aws_route53_record" "cert_validation" {
-  provider = aws.use_default_region
+  provider = aws.us-east-1
   for_each = {
     for dvo in aws_acm_certificate.cert.domain_validation_options : dvo.domain_name => {
       name   = dvo.resource_record_name
